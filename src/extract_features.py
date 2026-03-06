@@ -9,7 +9,8 @@ from torch.utils.data import DataLoader
 # --- Import your feature extractor classes ---
 from features import (
     RoBERTaFeatureExtractor,
-    T5FeatureExtractor
+    T5FeatureExtractor,
+    GPTFeatureExtractor
 )
 # from datasets.ImageFilesDataset import ImageFilesDataset
 
@@ -30,7 +31,7 @@ def get_feature_extractor(name, pretrained=None):
     if name == 't5':
         return T5FeatureExtractor(save_path='.')
     if name == 'gpt':
-        return GPTFeatureExtractor(save_path='.')
+        return GPTFeatureExtractor(save_path='.', API_KEY="")
     raise ValueError(f"Unknown feature extractor: {name}")
 
 
